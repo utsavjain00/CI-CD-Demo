@@ -8,20 +8,29 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
 jobs:
+
   # 🔹 Runs ONLY on push to main
   push-job:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'npm'
 
       - name: Echo Message
         run: echo "Code pushed to main branch successfully!"
+
 
   # 🔹 Runs ONLY on pull request
   pr-quality-check:
@@ -46,3 +55,6 @@ jobs:
 
       - name: Run Prettier Check
         run: npm run format:check
+
+      - name: Run Tests
+        run: npm test -- --watch=false --browsers=ChromeHeadless
