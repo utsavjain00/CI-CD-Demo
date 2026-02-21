@@ -12,7 +12,6 @@ permissions:
   contents: read
 
 jobs:
-
   # 🔹 Runs ONLY on push to main
   push-job:
     if: github.event_name == 'push'
@@ -30,7 +29,6 @@ jobs:
 
       - name: Echo Message
         run: echo "Code pushed to main branch successfully!"
-
 
   # 🔹 Runs ONLY on pull request
   pr-quality-check:
