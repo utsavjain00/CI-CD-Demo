@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "format": "prettier --write .",
-  "format:check": "prettier --check ."
+    "format:check": "prettier --check ."
   },
   "prettier": {
     "printWidth": 100,
@@ -42,6 +42,7 @@
     "angular-eslint": "21.2.0",
     "eslint": "^9.39.2",
     "jsdom": "^27.1.0",
+    "prettier": "^3.8.1",
     "typescript": "~5.9.2",
     "typescript-eslint": "8.50.1",
     "vitest": "^4.0.8"
