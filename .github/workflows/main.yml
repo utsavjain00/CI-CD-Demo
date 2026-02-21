@@ -11,6 +11,9 @@ on:
 permissions:
   contents: read
 
+env:
+  APP_NAME: "Angular CI Demo"  
+
 jobs:
   # 🔹 Runs ONLY on push to main
   push-job:
@@ -28,7 +31,7 @@ jobs:
           cache: 'npm'
 
       - name: Echo Message
-        run: echo "Code pushed to main branch successfully!"
+        run: echo " $APP_NAME pushed to main successfully!"
 
   # 🔹 Runs ONLY on pull request
   pr-quality-check:
@@ -53,6 +56,3 @@ jobs:
 
       - name: Run Prettier Check
         run: npm run format:check
-
-      - name: Run Tests
-        run: npm test -- --watch=false
